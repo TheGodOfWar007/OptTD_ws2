@@ -1,0 +1,16 @@
+## Ignoring the ROS catkin directories.
+build
+install
+log
+
+## Ignoring vscode residual files
+.vscode
+
+## Ignoring MATLAB residual directories.
+slprj
+
+## Ignoring extra packages from src
+src/ros_tutorials
+
+## Ignoring residual and backup SIMULINK files.
+single_integrator_formation_control.slxc
