@@ -1,5 +1,5 @@
 %% Mode Params
-ENABLE_WINDOW_MODE = true;
+ENABLE_WINDOW_MODE = false;
 ENABLE_GIF = true;
 
 %% Unpacking Simulink logged data to prepare for plotting.

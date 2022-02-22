@@ -22,10 +22,37 @@ init_orientations = [0, 0, 0;
                      0, 0, 0];
 
 %% Formation Graph
+%%% An Arbitrary Example
+% A = [0, 0.9, 0, 0.9, 1;
+%      0, 0, 0.9, 0, 0.8;
+%      0.9, 0.9, 0, 0, 0.7;
+%      0.6, 0, 0.5, 0, 0.9;
+%      0.9, 0.9, 0.9, 0.6, 0];
 
-A = ones(5, 5);
+%%% With node 5 as an authority
+% A = [0, 0.9, 0, 0.9, 0;
+%      0, 0, 0.9, 0, 0;
+%      0.9, 0.9, 0, 0, 0;
+%      0.6, 0, 0.5, 0, 0;
+%      0.9, 0.9, 0.9, 0.6, 0];
+
+%%% With a weakly connected graph.
+% A = [0, 0.9, 0 ,0, 0;
+%      0, 0, 0.3, 0, 0;
+%      0.5, 0.7, 0, 0, 0;
+%      0, 0, 0.3, 0, 0.9;
+%      0, 0, 0, 0.6, 0];
+
+%%% Disconnected DiGraph
+A = [0, 0.9, 0 ,0, 0;
+     0, 0, 0.3, 0, 0;
+     0.5, 0.7, 0, 0, 0;
+     0, 0, 0, 0, 0.9;
+     0, 0, 0, 0.6, 0];
 A = A - diag(diag(A)); % Removing self connections.
-
+L = diag(sum(A,2)) - A;
+G = digraph(A);
+plot(G);
 %% Test Motion Planner
 static_formation = [0.0, 0.0, 0.0;
                     2.0, 0.0, 0.0;
